@@ -1,4 +1,4 @@
-#include <studio.h>
+#include <stdio.h>
 #include "myheader.h"
 
 void main() {
