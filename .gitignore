@@ -12,4 +12,4 @@ java/*.class
 
 ## scala
 scala/**/project
-scala/**/tagret
+scala/**/tagretcd
