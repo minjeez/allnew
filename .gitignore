@@ -6,6 +6,10 @@ c/**/hello
 c/**/*.o
 c/**/test
 
-##java
+## java
 
 java/*.class
+
+## scala
+scala/**/project
+scala/**/tagret
