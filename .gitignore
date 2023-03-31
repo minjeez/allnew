@@ -13,3 +13,6 @@ java/*.class
 ## scala
 scala/**/project
 scala/**/tagretcd
+
+## maven
+maven/target
