@@ -27,3 +27,4 @@ python/**/__pycache__/
 ##m mongodb
 mongodb/*.json
 mongodb/**/*.json
+mongodb/**/*.mp4
