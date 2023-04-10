@@ -7,17 +7,17 @@
 <body>
   <h3>mysql - st_info</h3>
   <hr />
-  <form>
-    ST_ID : <input type="text" id="id" /><br />
-    NAME : <input type="text" id="name" /><br />
-    DEPT : <input type="text" id="dept" />
-    <br />
-    <input type="button" value="Get /Hello" Onclick='document.location.href="/Hello"' />&nbsp;&nbsp;
-    <input type="button" value="Select st_info" Onclick='document.location.href="/Select"' />&nbsp;&nbsp;
-    <input type="button" value="Insert st_info" Onclick='document.targetURL.location.href="/Insert"' />&nbsp;&nbsp;
-    <input type="button" value="초기화" Onclick='document.targetURL.location.href="/Hello"' />&nbsp;&nbsp;
-  <iframe name="targerURL" class="iframe-preview center" width="80%" height="500" style="border: none"></iframe>
-  </form>
-
+  <form action="/insert" method="get">
+    ST_ID : <input type="text" name="ST_ID" /><br />
+    NAME : <input type="text" name="NAME" /><br />
+    DEPT : <input type="text" name="DEPT" /><br />
+    <input type="button" value="Insert st_info" onclick='document.targetURL.location.href="/insert"'>&nbsp;&nbsp;
+    <form action="/select" method="get">
+      <input type="button" value="select st_info" onclick='document.targetURL.location.href="/select"'>&nbsp;&nbsp;
+      <form action="/Hello" method="get">
+        <input type="button" value="Get Hello" onclick='document.targetURL.location.href="/Hello"'>&nbsp;&nbsp;
+      </form>
+      <iframe name="targetURL" class="iframe-preview center" width="90%" height="500" style="border:none;"
+        src="/Hello"></iframe>
 </body>
 </html>
