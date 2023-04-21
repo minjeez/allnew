@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>리터럴 표기법으로 Book 객체 만들기</title>
+    <script>
+        function Book(title, author, totalPage, leftoverPage, category, price, rentalState, rentalUser, rentalDay) {
+            this.title = title;
+            this.author = author;
+            this.totalPage = totalPage;
+            this.leftoverPage = totalPage;
+            this.category = category;
+            this.price = price;
+            this.rentalState = 0;
+            this.rentalUser = "";
+            this.rentalDay = 0;
+
+            this.reading = function (page) { this.leftoverPage = this.totalPage - page; return this.leftoverPage; };
+            this.rental = function (user, day) {
+                this.rentalUser = user;
+                this.rentalDay = day;
+                this.rentalState = 0;
+                return this.rentalState;
+            };
+
+        }
+    </script>
+</head>
+<body>
+    <h3>Book 프로토타입 만들기</h3>
+    <hr>
+    <script>
+        let book = new Book("사람은 무엇을 위해 사는가", "톨스토이", 200, 200, "소설", 18000, 0, "홍길동", 30);
+        document.write(book.totalPage + "페이지 중 " + book.reading(10) + " 페이지가 남았습니다.")
+        book.reading(20)
+        document.write(book.leftoverPage)
+        // book.rental(한민지, 30)
+        // document.write(this.rentalUser + "이/가 " + this.rentalDay + "일 동안 대여중입니다.")
+
+    </script>
+</body>
+</html>
