@@ -2,33 +2,61 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>가위 바위 보 게임 II</title>
     <script>
-        function rspGame() {
-            let rsp_v = document.getElementsByName("rsp");
-            let com = Math.floor(Math.random() * 3 + 1);
-            if (rsp_v == "1") user = 1;
-            else if (rsp_v == "2") user = 2;
-            else user = 3;
-            let verdict = user - com;
-            var rsp_t = { 1: "가위", 2: "바위", 3: "보" };
-            let text = "";
-            text += "User : " + rsp_t[user] + " vs  Com : " + rsp_t[com] + "\n";
-            if (verdict == -2 || verdict == 1) text += "당신이 이겼습니다.\n";
-            else if (verdict == 2 || verdict == -1) text += "당신이 졌습니다.\n";
-            else text += "무승부입니다.\n";
-            alert(text);
+        function checkWinner() {
+            let mychoice = null;
+            let myrsp = document.getElementsByName("rsp");
+            let comchoice = Math.floor(Math.random() * 3);
+            var result = "";
+
+            // 사용자 선택 값
+            for (let i = 0; i < myrsp.length; i++) {
+                if (myrsp[i].checked == true) {
+                    mychoice = i;
+                }
+            }
+
+            // // 미입력시
+            // if (mychoice == null) {
+            //     alert("가위, 바위, 보 중 하나를 선택해주세요!");
+            //     return;
+            // }
+
+            // 게임 결과
+            if (mychoice == comchoice) {
+                result = "비겼습니다!";
+            } else if (
+                (mychoice == 0 && comchoice == 1) ||
+                (mychoice == 1 && comchoice == 2) ||
+                (mychoice == 2 && comchoice == 0)
+            ) {
+                result = "Computer is Winner!!";
+            } else {
+                result = "You're the Winner!!";
+            }
+
+            var rsp = ["가위", "바위", "보"];
+
+            alert(
+                "컴퓨터의 선택 : " +
+                rsp[comchoice] +
+                "     당신의 선택 : " +
+                rsp[mychoice] +
+                "     " +
+                result
+            );
         }
     </script>
 </head>
+
 <body>
-    <h3>가위 바위 보 게임 II</h3>
+    <h3>NEW 가위바위보</h3>
     <hr />
     <form>
-        <input type="radio" name="rsp" value="1" checked />가위
-        <input type="radio" name="rsp" value="2" />바위
-        <input type="radio" name="rsp" value="3" />보
-        <input type="button" value="Game Go!!" onclick="rspGame()" />
+        <input type="radio" name="rsp" value="0" />가위
+        <input type="radio" name="rsp" value="1" />바위
+        <input type="radio" name="rsp" value="2" />보&nbsp;&nbsp;&nbsp;
+        <input type="button" value="Who's the Winner" onclick="checkWinner()" />
     </form>
 </body>
 </html>
