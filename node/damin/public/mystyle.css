@@ -1,0 +1,50 @@
+body {
+
+    text-align: center;
+    background: url("taxi.jpg")
+}
+
+
+h1 {
+    color: rgb(245, 146, 146);
+    font-family: Kristen ITC;
+    font-size: 50px;
+    text-shadow: 3px 3px rgb(156, 17, 17);
+}
+
+input {
+    font-size: 17px;
+}
+
+
+a {
+    font-family: muddled;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+
+}
+
+
+div.box {
+    background: rgb(255, 255, 255);
+    border-radius: 50px 50px 50px 50px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    width: 300px;
+    height: 200px;
+
+    border-width: 1px;
+    padding: 1px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+div.box-liner {
+    border-style: none;
+    text-align: center;
+    padding: 10px;
+
+}
