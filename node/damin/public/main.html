@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link type="text/css" rel="stylesheet" href="mystyle.css">
+    <meta charset="utf-8" />
+    <title>Main Page</title>
+</head>
+<body>
+    <h2>택시 호출하기 페이지</h2>
+    <form action="/call" name="callForm" method="get">
+        <div>
+            <label for="area">출발 지역구 : </label>
+            <select name="area">
+                <option value="JN">종로구</option>
+                <option value="JG">중구</option>
+                <option value="YS">용산구</option>
+                <option value="SD">성동구</option>
+                <option value="GG">광진구</option>
+                <option value="DD">동대문구</option>
+                <option value="JN">중랑구</option>
+                <option value="SB">성북구</option>
+                <option value="GB">강북구</option>
+                <option value="DB">도봉구</option>
+                <option value="NW">노원구</option>
+                <option value="EP">은평구</option>
+                <option value="SM">서대문구</option>
+                <option value="MP">마포구</option>
+                <option value="GS">강서구</option>
+                <option value="GR">구로구</option>
+                <option value="GC">금천구</option>
+                <option value="YD">영등포구</option>
+                <option value="DJ">동작구</option>
+                <option value="GW">관악구</option>
+                <option value="SC">서초구</option>
+                <option value="GN">강남구</option>
+                <option value="SP">송파구</option>
+                <option value="GD">강동구</option>
+            </select>
+            <p>출발지 : <input type="text" size="13" name="start" /></p>
+            <p>목적지 : <input type="text" size="13" name="end" /></p>
+            <label>
+                <input type="radio" name="cartype" value="suv" checked />
+                SUV (준대형)
+            </label>
+            <label>
+                <input type="radio" name="cartype" value="van" />
+                Van (대형)
+            </label><br><br>
+        </div>
+        <input type="submit" value="콜 요청" />&nbsp;&nbsp;
+        <button type="reset">취소</button>&nbsp;&nbsp;
+        <a href="index.html">로그아웃</a><br><br>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>User Authentication</title>
+    <script>
+        function getParameter(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null
+                ? ""
+                : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        function sessionStore() {
+            let id = getParameter("id");
+            let now = new Date();
+            if (!window.sessionStorage) {
+                alert("세션 스토리지를 지원하지 않습니다.");
+                return;
+            }
+            sessionStorage.setItem(id, now);
+            alert(`사용자 ${id} 님이 로그인 하셨습니다.`);
+        }
+    </script>
+</head>
+<body onload="sessionStore()">
+    <h2>관리자 페이지</h2>
+    <hr />
+    <br>
+    <form action="/insert" target="targetURL" name="userForm" method="post">
+        <p>아이디 : <input type="text" size="15" name="id" /></p>
+        <p>비밀번호 : <input type="password" size="15" name="pw" /></p>
+        <p>이름 : <input type="text" size="15" name="name" /></p>
+        <p>주소 : <input type="text" size="15" name="addr" /></p>
+        <p>자주 방문하는 장소 : <input type="text" size="15" name="favor" /></p>
+        <br>
+        <input type="button" value="전체회원목록" onclick='document.targetURL.location.href="/select"' />&nbsp;&nbsp;
+        <input type="button" value="회원찾기"
+            onclick='document.targetURL.location.href="/selectQuery?id="+document.userForm.id.value' />&nbsp;&nbsp;
+        <button type="submit" formaction="/update">회원정보수정</button>&nbsp;&nbsp;
+        <button type="submit" formaction="/delete">회원삭제</button>&nbsp;&nbsp;
+        <a href="index.html">로그아웃</a>
+    </form>
+    <iframe name="targetURL" width="70%" height="500" style="border: none"></iframe>
+</body>
+</html>

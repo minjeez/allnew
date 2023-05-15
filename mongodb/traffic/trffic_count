@@ -1,0 +1,44 @@
+MongoDB shell version v4.4.19
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("69ff1482-3f90-4df6-ab58-febd5c1ec6c6") }
+MongoDB server version: 4.4.19
+---
+The server generated these startup warnings when booting: 
+        2023-04-03T11:34:37.659+09:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+        2023-04-03T11:34:38.845+09:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> [3G[J[3G> s[3G[J[3G[1G[J(i-search)`': s[16G[1G[J> s[4G[3G[Js[4G
+
+uncaught exception: ReferenceError: s is not defined :
+@(shell):1:1
+> ddd[3G[Jddd[6G
+uncaught exception: ReferenceError: ddd is not defined :
+@(shell):1:1
+> [3G[J[3G> [3G[J[3G> d [3G[Jd[4G[3G[J[3Gr dd:E et trafifc[3G[Jr dd:E et trafif[19G jjjjkkl"[3G[Jr dd:E et trafif jjjjkkl"[28G
+
+
+uncaught exception: SyntaxError: unexpected token: identifier :
+@(shell):1:2
+> [3G[J[3G> [3G[J[3G> [3G[J[3G> [3G[J[3G> [3G[J[3G> [3G[J[3G> [3G[J[3G> :exit[3G[J:exit[8G
+
+
+
+
+
+
+
+uncaught exception: SyntaxError: expected expression, got ':' :
+@(shell):1:0
+> [3G[J[3G^C
+bye
