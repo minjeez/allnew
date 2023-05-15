@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Damin Dolbomi Taxi Homepage</title>
+    <style>
+      body {
+        text-align: center; background-color: bisque;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>다민 돌보미 택시를 이용해주셔서 감사합니다.</h3>
+    <hr />
+    <form action="/insert" name="userForm" method="post" target="targetURL">
+      <p>회원번호(핸드폰번호) : <input type="text" size="15" name="UsrId" /></p>
+      <p>이름 : <input type="text" size="15" name="Name" /></p>
+      <p>주소 : <input type="text" size="15" name="Addr" /></p>
+      <p>자주 이용하는 장소 : <input type="text" size="15" name="Favor" /></p>
+      <input
+        type="button"
+        value="로그인"
+        onclick='document.targetURL.location.href="/selectQuery?UsrId="+document.userForm.UsrId.value'
+      />&nbsp;&nbsp;
+      <input type="submit" value="회원가입" />&nbsp;&nbsp;
+      <button type="submit" formaction="/update">post update</button>&nbsp;&nbsp;
+      <button type="submit" formaction="/delete">post delete</button>;
+    </form>
+    <hr />
+    <iframe
+      name="targetURL"
+      width="60%"
+      height="400"
+      style="border: 2px solid black; background-color: gold;"
+      src="/intro"
+    ></iframe>
+  </body>
+</html>
