@@ -26,4 +26,3 @@ print(b2)
 result4 = np.matmul(a, b2)
 print("sol4-2")
 print(result4)
-

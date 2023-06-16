@@ -18,11 +18,19 @@ maven/target
 
 ## nodejs
 node/**/node_modules
+node/**/package*
 node/**/package-lock.json
+node/node_modules
+node/package*
+node/package-lock.json
 
-## python
+##python
 python/**/.venv
 python/**/__pycache__/
+python/**/.idea
+python/**/node_modules
+python/**/package*
+python/**/package-lock.json
 python/secret.json
 
 ## mongodb

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>🧑‍🍳이세계식당🧑‍🍳</title>
+    <link type="text/css" rel="stylesheet" href="mystyle.css">
+    <script>
+        function searchAll() {
+            const xhr = new XMLHttpRequest();
+            const method = "GET";
+            const url = "/first_search_RCP?first_RCP_NM=" + document.getElementById('food').value;
+            xhr.open(method, url);
+            xhr.setRequestHeader("content-type", "application/json");
+            xhr.send();
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    const res = JSON.parse(xhr.response);
+                    const keys = Object.keys(res);
+                    console.log(keys);
+                    const values = res[keys[0]];
+                    console.log(values);
+                    var element = document.getElementById("ss1");
+                    element.textContent = ""
+
+                    for (let i = 0; i < values.length; i++) {
+                        const radio = document.createElement("input");
+                        radio.type = "radio";
+                        radio.value = values[i];
+                        radio.id = `radio${i}`;
+                        const label = document.createElement("label");
+                        label.textContent = values[i];
+                        element.appendChild(radio);
+                        element.appendChild(label);
+                    };
+                    const button = document.createElement("input");
+                    button.type = "button";
+                    button.value = "🍴만들고싶은 음식을 선택해주세요🍴";
+                    button.onclick = sendCheckedValue
+                    element.appendChild(button);
+                } else {
+                    console.log("HTTP error", xhr.status, xhr.statusText);
+                }
+            };
+        }
+        function sendCheckedValue() {
+            const selectedRadio = document.querySelector('input[type="radio"]:checked');
+            const selectedValue = selectedRadio.value;
+            searchRecipe(selectedValue);
+        };
+
+        function searchRecipe(selectedValue) {
+            const xhr = new XMLHttpRequest();
+            const method = "GET";
+            const url = "/search_all?RCP_NM_name=" + selectedValue;
+            xhr.open(method, url);
+            xhr.setRequestHeader("content-type", "application/json");
+            xhr.send();
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    const res = JSON.parse(xhr.response);
+                    const keys = Object.keys(res);
+                    console.log(keys);
+                    const values = res[keys[0]];
+                    console.log(values);
+                    const element = document.getElementById("ss2");
+                    element.innerHTML = values;
+                    element.textContent = ""
+                    for (let i = 0; i < values.length; i++) {
+                        const checkbox = document.createElement("input");
+                        checkbox.type = "checkbox";
+                        checkbox.value = values[i];
+                        checkbox.id = `checkbox${i}`;
+                        const label = document.createElement("label");
+                        label.textContent = values[i];
+                        element.appendChild(checkbox);
+                        element.appendChild(label);
+                    }
+                    const button = document.createElement("input");
+                    button.type = "button";
+                    button.value = "레시피 알려줘잉";
+                    button.onclick = sendChecBoxValue
+                    element.appendChild(button);
+
+                    const button1 = document.createElement("input");
+                    button1.type = "button";
+                    button1.value = "이건 재료가 아니잖슴";
+                    button1.onclick = singoValue
+                    element.appendChild(button1);
+                }
+            };
+        }
+        function singoValue() {
+            var selectedCheckBox = document.querySelectorAll('input[type="checkbox"]:checked');
+            str = ""
+            for (var i = 0; i < selectedCheckBox.length; i++) {
+                str += selectedCheckBox[i].value + " ";
+            }
+            singolist(str)
+
+        };
+        function singolist(str) {
+            const xhr = new XMLHttpRequest();
+            const method = "GET";
+            const url = "/singo?args=" + str;
+            xhr.open(method, url);
+            xhr.setRequestHeader("content-type", "application/json");
+            xhr.send();
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    const res = JSON.parse(xhr.response);
+                    var singowin = res.신고구분[0].신고완료후값
+                    var singogood = res.신고구분[1].신고완료
+                    const win = document.getElementById("ss6");
+                    const tarsh = document.getElementById("ss7");
+                    win.innerHTML = singowin;
+                    tarsh.innerHTML = singogood;
+                    win.textContent = ""
+                    for (let i = 0; i < singowin.length; i++) {
+                        const checkbox = document.createElement("input");
+                        checkbox.type = "checkbox";
+                        checkbox.value = singowin[i];
+                        checkbox.id = `checkbox${i}`;
+                        const label = document.createElement("label");
+                        label.textContent = singowin[i];
+                        win.appendChild(checkbox);
+                        win.appendChild(label);
+                    }
+                    var button3 = document.createElement("input");
+                    button3.type = "button";
+                    button3.value = "냉장고에 있는 재료를 체크해주세요!";
+                    button3.onclick = sendChecBoxValue
+                    win.appendChild(button3);
+                }
+            };
+        }
+
+
+        function sendChecBoxValue() {
+            var selectedCheckBox = document.querySelectorAll('input[type="checkbox"]:checked');
+            str = ""
+            for (var i = 0; i < selectedCheckBox.length; i++) {
+                str += selectedCheckBox[i].value + " ";
+            }
+            foodListCkeck(str)
+        };
+        function foodListCkeck(str) {
+            const xhr = new XMLHttpRequest();
+            const method = "GET";
+            const url = "/foodListCkeck?args=" + str;
+            xhr.open(method, url);
+            xhr.setRequestHeader("content-type", "application/json");
+            xhr.send();
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    const res = JSON.parse(xhr.response);
+                    var buylist = res.종합[0].구매리스트
+                    var foodname = res.종합[1].음식이름
+                    var manul = res.종합[2].메뉴얼
+                    const buyelement = document.getElementById("ss3");
+                    const foodnameelement = document.getElementById("ss4");
+                    const maunlelement = document.getElementById("ss5");
+                    buyelement.innerHTML = buylist;
+                    foodnameelement.innerHTML = foodname;
+                    maunlelement.innerHTML = manul;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <center><img src="이세계식당.png" style="width: 500px;"></center>
+    </div>
+    <center>
+        <h3 style="margin-left: 30px;">🧑‍🍳이세계식당에 오신것을 환영합니다.🧑‍🍳</h3>
+    </center>
+    </div>
+    <div id="section1">
+        <center><input type="text" size="15" id="food" />&nbsp&nbsp&nbsp&nbsp<input type="button"
+                value="음식을 검색해 주세요 (❁´◡`❁)" onclick="searchAll()" />
+            <center></center>
+            <p>
+                <span id="ss1"></span><br>
+            </p>
+            <p>
+                <span id="ss2"></span>
+            </p>
+            <p>
+                <li id="ss6"></li>
+                <li id="ss7"></li>
+            </p>
+            <p>
+                <li id="ss4"></li><br>
+                <li id="ss3"></li><br>
+                <li id="ss5"></li>
+            </p>
+
+    </div>
+    <p style="text-align: center; margin-top: 30px;">&copy; Restaurant to Another World.corp.</p>
+</body>
+
+</html>
