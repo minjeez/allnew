@@ -1,0 +1,90 @@
+/* mystyle.css */
+
+body {
+    background-color: #d1e5f3;
+    font-family: Arial, sans-serif;
+}
+
+h3 {
+    color: #0066CC;
+    margin-left: 50px;
+}
+
+#section1 {
+    margin: 50px;
+}
+
+input[type="text"] {
+    padding: 5px;
+    border: 1px solid #2dbde9;
+    border-radius: 20px;
+    font-size: 16px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+input[type="button"] {
+    padding: 5px 10px;
+    background-color: #2dbde9;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+input[type="button"]:hover {
+    background-color: #45B8AC;
+}
+
+img {
+    width: 500px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#ss1,
+#ss2,
+#ss6,
+#ss7 {
+    margin-top: 10px;
+    text-align: left;
+}
+
+#ss2 {
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+ul li:before {
+    content: "•";
+    color: #0066CC;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+p {
+    color: #0066CC;
+    margin-top: 30px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+li label {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+li input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 5px;
+}

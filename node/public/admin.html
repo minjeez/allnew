@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>🧑‍🍳이세계식당🧑‍🍳</title>
+    <link type="text/css" rel="stylesheet" href="mystyle1.css">
+    <script>
+        function firstsearchRCP() {
+            const xhr = new XMLHttpRequest();
+            const method = "GET";
+            const url = "/first_search_RCP?first_RCP_NM=" + document.getElementById('foodtype').value;
+            xhr.open(method, url);
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== 4) return;
+
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    const element = document.getElementById("foodtypes");
+                    element.innerHTML = xhr.responseText;
+                } else {
+                    console.log("HTTP error", xhr.status, xhr.statusText);
+                }
+            };
+        }
+        function searchRCP() {
+            const xhr = new XMLHttpRequest();
+            const method = "GET";
+            const url = "/search_RCP?RCP_NM_name=" + document.getElementById('foodname').value;
+            xhr.open(method, url);
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== 4) return;
+
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    const element = document.getElementById("foodnameresult");
+                    element.innerHTML = xhr.responseText;
+                } else {
+                    console.log("HTTP error", xhr.status, xhr.statusText);
+                }
+            };
+        }
+        function PsearchRCPprocess() {
+            const xhr = new XMLHttpRequest();
+            const method = "GET";
+            const url = "/Psearch_RCP_process" + document.getElementById('firstprocess').value;
+            xhr.open(method, url);
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== 4) return;
+
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    const element = document.getElementById("firstprocessresult");
+                    element.innerHTML = xhr.responseText;
+                } else {
+                    console.log("HTTP error", xhr.status, xhr.statusText);
+                }
+            };
+        }
+        function Regexword() {
+            const xhr = new XMLHttpRequest();
+            const method = "GET";
+            const url = "/Regex" + document.getElementById('secondprocess').value;
+            xhr.open(method, url);
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== 4) return;
+
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    const element = document.getElementById("secondprocessresult");
+                    element.innerHTML = xhr.responseText;
+                } else {
+                    console.log("HTTP error", xhr.status, xhr.statusText);
+                }
+            };
+        }
+        function jsonmatch() {
+            const xhr = new XMLHttpRequest();
+            const method = "GET";
+            const url = "/firstmatch" + document.getElementById('jsonmatch').value;
+            xhr.open(method, url);
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== 4) return;
+
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    const element = document.getElementById("jsonmatchresult");
+                    element.innerHTML = xhr.responseText;
+                } else {
+                    console.log("HTTP error", xhr.status, xhr.statusText);
+                }
+            };
+        }
+        function mongomatch() {
+            const xhr = new XMLHttpRequest();
+            const method = "GET";
+            const url = "/secondmatch" + document.getElementById('mongomatch').value;
+            xhr.open(method, url);
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== 4) return;
+
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    const element = document.getElementById("mongomatchresult");
+                    element.innerHTML = xhr.responseText;
+                } else {
+                    console.log("HTTP error", xhr.status, xhr.statusText);
+                }
+            };
+        }
+        function trashmatch() {
+            const xhr = new XMLHttpRequest();
+            const method = "GET";
+            const url = "/lastmatch" + document.getElementById('trashmatch').value;
+            xhr.open(method, url);
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== 4) return;
+
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    const element = document.getElementById("trashmatchresult");
+                    element.innerHTML = xhr.responseText;
+                } else {
+                    console.log("HTTP error", xhr.status, xhr.statusText);
+                }
+            };
+        }
+        function singo() {
+            const xhr = new XMLHttpRequest();
+            const method = "GET";
+            const url = "/singo?args=" + document.getElementById('singoplz').value;
+            xhr.open(method, url);
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== 4) return;
+
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    const element = document.getElementById("singoresult");
+                    element.innerHTML = xhr.responseText;
+                } else {
+                    console.log("HTTP error", xhr.status, xhr.statusText);
+                }
+            };
+        }
+        function foodlistcheck() {
+            const xhr = new XMLHttpRequest();
+            const method = "GET";
+            const url = "/foodListCkeck?args=" + document.getElementById('foodlistcheck').value;
+            xhr.open(method, url);
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== 4) return;
+
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    const element = document.getElementById("foodlist");
+                    element.innerHTML = xhr.responseText;
+                } else {
+                    console.log("HTTP error", xhr.status, xhr.statusText);
+                }
+            };
+        }
+        function showrecipe() {
+            const xhr = new XMLHttpRequest();
+            const method = "GET";
+            const url = "/showRCP?" + document.getElementById('getRCP').value;
+            xhr.open(method, url);
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== 4) return;
+
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    const element = document.getElementById("RCPresult");
+                    element.innerHTML = xhr.responseText;
+                } else {
+                    console.log("HTTP error", xhr.status, xhr.statusText);
+                }
+            };
+        }
+        function searchALL() {
+            const xhr = new XMLHttpRequest();
+            const method = "GET";
+            const url = "/search_all?RCP_NM_name=" + document.getElementById('searchall').value;
+            xhr.open(method, url);
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== 4) return;
+
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    const element = document.getElementById("searchalllist");
+                    element.innerHTML = xhr.responseText;
+                } else {
+                    console.log("HTTP error", xhr.status, xhr.statusText);
+                }
+            };
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" id="foodtype">
+        <input type="button" value="음식 찾기" onclick="firstsearchRCP()" />
+        <div id="section1" style="margin-top: 20px;"></div>
+        <span id="foodtypes"></span>
+        <div id="section2" style="margin-top: 20px;"></div>
+    </div>
+    <div>
+        <input type="text" id="foodname">
+        <input type="button" value="레시피 찾기" onclick="searchRCP()" />
+        <div id="section1" style="margin-top: 20px;"></div>
+        <span id="foodnameresult"></span>
+        <div id="section2" style="margin-top: 20px;"></div>
+    </div>
+    <div>
+        <input type="hidden" id="firstprocess">
+        <input type="button" value="형태소분리" onclick="PsearchRCPprocess()" />
+        <div id="section1" style="margin-top: 20px;"></div>
+        <span id="firstprocessresult"></span>
+        <div id="section2" style="margin-top: 20px;"></div>
+    </div>
+    <div>
+        <input type="hidden" id="secondprocess">
+        <input type="button" value="정규표현식" onclick="Regexword()" />
+        <div id="section1" style="margin-top: 20px;"></div>
+        <span id="secondprocessresult"></span>
+        <div id="section2" style="margin-top: 20px;"></div>
+    </div>
+    <div>
+        <input type="hidden" id="jsonmatch">
+        <input type="button" value="jsonserverDB와 매칭" onclick="jsonmatch()" />
+        <div id="section1" style="margin-top: 20px;"></div>
+        <span id="jsonmatchresult"></span>
+        <div id="section2" style="margin-top: 20px;"></div>
+    </div>
+    <div>
+        <input type="hidden" id="mongomatch">
+        <input type="button" value="mongoDB와 매칭" onclick="mongomatch()" />
+        <div id="section1" style="margin-top: 20px;"></div>
+        <span id="mongomatchresult"></span>
+        <div id="section2" style="margin-top: 20px;"></div>
+    </div>
+    <div>
+        <input type="hidden" id="trashmatch">
+        <input type="button" value="trashjsonDB와 매칭" onclick="trashmatch()" />
+        <div id="section1" style="margin-top: 20px;"></div>
+        <span id="trashmatchresult"></span>
+        <div id="section2" style="margin-top: 20px;"></div>
+    </div>
+    <div>
+        <input type="text" id="singoplz">
+        <input type="button" value="재료가 아닌것들 신고하기" onclick="singo()" />
+        <div id="section1" style="margin-top: 20px;"></div>
+        <span id="singoresult"></span>
+        <div id="section2" style="margin-top: 20px;"></div>
+    </div>
+    <div>
+        <input type="text" id="foodlistcheck">
+        <input type="button" value="구매리스트와 레시피 보여주기" onclick="foodlistcheck()" />
+        <div id="section1" style="margin-top: 20px;"></div>
+        <span id="foodlist"></span>
+        <div id="section2" style="margin-top: 20px;"></div>
+    </div>
+    <div>
+        <input type="hidden" id="getRCP">
+        <input type="button" value="레시피 보여주기" onclick="showrecipe()" />
+        <div id="section1" style="margin-top: 20px;"></div>
+        <span id="RCPresult"></span>
+        <div id="section2" style="margin-top: 20px;"></div>
+    </div>
+    <div>
+        <div>
+            <input type="text" id="searchall">
+            <input type="button" value="모든 DB와 매칭" onclick="searchALL()" />
+            <div id="section1" style="margin-top: 20px;"></div>
+            <span id="searchalllist"></span>
+            <div id="section2" style="margin-top: 20px;"></div>
+        </div>
+        <div>
+</body>
+
+</html>
